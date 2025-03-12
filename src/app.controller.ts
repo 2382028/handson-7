@@ -1,31 +1,9 @@
-import { Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 
-
-@Controller('songs')
-export class SongsController {
-
+@Controller()
+export class AppController {
   @Get()
-  findAll(){
-    return 'Find all';
+  getHello(): string {
+    return 'Hello World!';
   }
-
-  @Get (':id')
-  findOne(@Param('id')id: number){
-  return 'Find one';
-  }
-
-  @Put()
-  update(@Param('id')id: number){
-    return 'Update one';
-    }
-
-  @Delete()
-  delete(@Param('id')id: number){
-    return 'Delete one';
-    }
-
-  @Post()
-  create(){
-      return 'Create';
-    }
-  }
+}
