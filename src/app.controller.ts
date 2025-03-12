@@ -1,12 +1,31 @@
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import { Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 
-@Controller()
-export class AppController {
-  constructor(private readonly appService: AppService) {}
+
+@Controller('songs')
+export class SongsController {
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  findAll(){
+    return 'Find all';
   }
-}
+
+  @Get (':id')
+  findOne(@Param('id')id: number){
+  return 'Find one';
+  }
+
+  @Put()
+  update(@Param('id')id: number){
+    return 'Update one';
+    }
+
+  @Delete()
+  delete(@Param('id')id: number){
+    return 'Delete one';
+    }
+
+  @Post()
+  create(){
+      return 'Create';
+    }
+  }
